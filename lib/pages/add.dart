@@ -25,8 +25,6 @@ class _AddPageState extends State<AddPage> {
               child: Column(
                 children: [
                   TextField(
-                    minLines: 4,
-                    maxLines: 8,
                     controller: todo_title,
                     decoration: InputDecoration(
                       hintText: 'ລາຍການທີ່ຕ້ອງເຮັດ : ',
@@ -34,7 +32,7 @@ class _AddPageState extends State<AddPage> {
                         color: Colors.red,
                       ),
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color.fromARGB(255, 153, 141, 141),
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -49,6 +47,8 @@ class _AddPageState extends State<AddPage> {
                   ),
                   const SizedBox(height: 20),
                   TextField(
+                    minLines: 4,
+                    maxLines: 8,
                     controller: todo_detail,
                     decoration: InputDecoration(
                       hintText: 'ລາຍລະອຽດ : ',
@@ -71,7 +71,11 @@ class _AddPageState extends State<AddPage> {
                   ),
                   const SizedBox(height: 50),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print('-----------');
+                      print('Title : ${todo_title.text}');
+                      print('Detail : ${todo_detail.text}');
+                    },
                     child: Text(
                       'ເພີ່ມລາຍການ',
                       style: TextStyle(

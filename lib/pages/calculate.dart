@@ -62,28 +62,24 @@ class _CalculatePageState extends State<CalculatePage> {
     );
   }
 
-  ElevatedButton buildButton() {
-    return ElevatedButton(
+  TextButton buildButton() {
+    return TextButton(
       onPressed: () {
         var calculate = double.parse(quantity.text) * double.parse(price.text);
         print('Product quantity ${quantity.text} Total : $calculate LAK');
-        setState(() {
-          result.text =
-              'Phenomenal Logistic ຂົນສົ່ງຈີນ - ລາວ\nຄ່າຂົນສົ່ງກິໂລ 15,000 ກີບ\nຈຳນວນ ${quantity.text} ກິໂລ\nລວມທັງໝົດທີ່ລູກຄ້າຕ້ອງຈ່າຍ ${calculate.toStringAsFixed(2)} LAK';
-        });
+        setState(
+          () {
+            result.text =
+                'Phenomenal Logistic ຂົນສົ່ງຈີນ - ລາວ\nຄ່າຂົນສົ່ງກິໂລ 15,000 ກີບ\nຈຳນວນ ${quantity.text} ກິໂລ\nລວມທັງໝົດທີ່ລູກຄ້າຕ້ອງຈ່າຍ ${calculate.toStringAsFixed(2)} LAK';
+          },
+        );
       },
-      child: const Text('ຄິດໄລ່'),
-      style: ButtonStyle(
-        textStyle: MaterialStateProperty.all(
-          TextStyle(
-            fontSize: 20,
-          ),
-        ),
-        padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-        ),
-        backgroundColor: MaterialStateProperty.all(
-          Colors.red.shade300,
+      child: const Text(
+        'ຄິດໄລ່',
+        style: TextStyle(
+          color: Colors.red,
+          fontSize: 30.0,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
