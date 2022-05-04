@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_first_project/pages/add.dart';
 import '../pages/about_us.dart';
 import '../pages/calculate.dart';
-import '../pages/cart.dart';
 import '../pages/home.dart';
 import '../pages/profile.dart';
 
@@ -19,7 +18,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     CalculatePage(),
     AboutUsPage(),
-    CartPage(),
+    AddPage(),
     ProfilePage(),
   ];
 
@@ -39,13 +38,13 @@ class _MainPageState extends State<MainPage> {
           selectedItemColor: Colors.grey.shade400,
           unselectedItemColor: Colors.red.shade300,
           currentIndex: _currentIndex,
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.calculate), label: 'Calculate'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.contact_mail), label: 'About Us'),
-            BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'Cart'),
+                icon: Icon(Icons.contact_mail), label: 'About'),
+            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ],
           onTap: (index) {
