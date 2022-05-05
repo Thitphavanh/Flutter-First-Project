@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
 class AddPage extends StatefulWidget {
   const AddPage({Key? key}) : super(key: key);
@@ -92,5 +95,14 @@ class _AddPageState extends State<AddPage> {
         ],
       ),
     );
+  }
+
+  Future postTodo() async {
+    var url = Uri.https('aaa.ngrok.oi', '/api/post-todolist');
+    Map<String, String> header = {"Content-type": "application/json"};
+    String jsondata =
+        '{"title":"watch football","detail":"Liverpool vs Real Madrid"}';
+    var response = await http.post(url, headers: header, body: jsondata);
+    print(response.body);
   }
 }
