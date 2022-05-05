@@ -79,6 +79,11 @@ class _AddPageState extends State<AddPage> {
                       print('Title : ${todo_title.text}');
                       print('Detail : ${todo_detail.text}');
                       postTodo();
+
+                      setState((){
+                        todo_title.clear();
+                        todo_detail.clear();
+                      });
                     },
                     child: Text(
                       'ເພີ່ມລາຍການ',
@@ -99,11 +104,11 @@ class _AddPageState extends State<AddPage> {
   }
 
   Future postTodo() async {
-    // var url = Uri.https('aaa.ngrok.oi', '/api/post-todolist');
+    // var url = Uri.https('f678-115-84-96-195.ngrok.io', '/api/post-todolist');
     var url = Uri.http('192.168.0.54:8000', '/api/post-todolist');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
-        '{"title":"watch football","detail":"Liverpool vs Real Madrid"}';
+        '{"title":"${todo_title.text}","detail":"${todo_detail.text}"}';
     var response = await http.post(url, headers: header, body: jsondata);
     print(response.body);
   }
