@@ -78,6 +78,7 @@ class _AddPageState extends State<AddPage> {
                       print('-----------');
                       print('Title : ${todo_title.text}');
                       print('Detail : ${todo_detail.text}');
+                      postTodo();
                     },
                     child: Text(
                       'ເພີ່ມລາຍການ',
