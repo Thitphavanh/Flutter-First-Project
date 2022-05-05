@@ -99,7 +99,8 @@ class _AddPageState extends State<AddPage> {
   }
 
   Future postTodo() async {
-    var url = Uri.https('aaa.ngrok.oi', '/api/post-todolist');
+    // var url = Uri.https('aaa.ngrok.oi', '/api/post-todolist');
+    var url = Uri.http('192.168.0.54:8000', '/api/post-todolist');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
         '{"title":"watch football","detail":"Liverpool vs Real Madrid"}';
