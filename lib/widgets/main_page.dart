@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_project/pages/add.dart';
+import 'package:flutter_first_project/pages/todo_list.dart';
 import '../pages/about_us.dart';
 import '../pages/calculate.dart';
 import '../pages/home.dart';
-import '../pages/profile.dart';
+
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _MainPageState extends State<MainPage> {
     CalculatePage(),
     AboutUsPage(),
     AddPage(),
-    ProfilePage(),
+    TodoList(),
   ];
 
   @override
@@ -45,7 +46,8 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.contact_mail), label: 'About'),
             BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.add_task), label: 'TodoList'),
           ],
           onTap: (index) {
             setState(
