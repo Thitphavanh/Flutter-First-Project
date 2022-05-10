@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_first_project/pages/add.dart';
-import 'package:flutter_first_project/pages/todo_list.dart';
-import '../pages/about_us.dart';
-import '../pages/calculate.dart';
-import '../pages/home.dart';
-
+import 'package:flutter_first_project/pages/add_page.dart';
+import 'package:flutter_first_project/pages/profile_page.dart';
+import 'package:flutter_first_project/pages/todo_list_page.dart';
+import '../pages/about_us_page.dart';
+import '../pages/calculate_page.dart';
+import '../pages/home_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -18,9 +18,9 @@ class _MainPageState extends State<MainPage> {
   final tabs = [
     HomePage(),
     CalculatePage(),
-    AboutUsPage(),
-    AddPage(),
     TodoList(),
+    AboutUsPage(),
+    ProfilePage(),
   ];
 
   @override
@@ -41,13 +41,12 @@ class _MainPageState extends State<MainPage> {
           currentIndex: _currentIndex,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.calculate), label: 'Calculate'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.contact_mail), label: 'About'),
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
+            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Calculate'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.add_task), label: 'TodoList'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.contact_mail), label: 'About'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ],
           onTap: (index) {
             setState(
