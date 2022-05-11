@@ -55,12 +55,6 @@ class _TodoListState extends State<TodoList> {
             ),
             onTap: () {
               // print('xx');
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => UpdateTodolistPage(),
-                ),
-              );
             },
           ),
         );

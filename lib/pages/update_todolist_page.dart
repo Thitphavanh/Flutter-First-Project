@@ -4,15 +4,30 @@ import 'dart:async';
 import 'dart:convert';
 
 class UpdateTodolistPage extends StatefulWidget {
-  const UpdateTodolistPage({Key? key}) : super(key: key);
+  final v1, v2, v3;
+
+  const UpdateTodolistPage(
+    this.v1,
+    this.v2,
+    this.v3,
+  );
 
   @override
   State<UpdateTodolistPage> createState() => _UpdateTodolistPageState();
 }
 
 class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
+  var _v1, _v2, _v3, _v4;
   TextEditingController todo_title = TextEditingController();
   TextEditingController todo_detail = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _v1 = widget.v1;
+    _v2 = widget.v2;
+    _v3 = widget.v3;
+  }
 
   @override
   Widget build(BuildContext context) {
