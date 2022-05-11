@@ -41,7 +41,7 @@ class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
           TextButton(
             onPressed: () {},
             child: Text(
-              'Edit',
+              'Delete',
               style: TextStyle(
                 color: Colors.red,
               ),
