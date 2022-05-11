@@ -9,14 +9,12 @@ class TodoList extends StatefulWidget {
 }
 
 class _TodoListState extends State<TodoList> {
+  List todoListItems = ['a', 'b', 'c', 'd'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          Text('All Todolist'),
-        ],
-      ),
+      body: todoListCreate(),
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(8.0),
         child: FloatingActionButton(
@@ -28,11 +26,26 @@ class _TodoListState extends State<TodoList> {
               ),
             );
           },
-          child: Icon(
+          child: const Icon(
             Icons.add,
           ),
         ),
       ),
+    );
+  }
+
+  Widget todoListCreate() {
+    return ListView.builder(
+      itemCount: todoListItems.length,
+      itemBuilder: (context, index) {
+        return Card(
+          child: ListTile(
+            title: Text(
+              '${todoListItems[index]}',
+            ),
+          ),
+        );
+      },
     );
   }
 }
