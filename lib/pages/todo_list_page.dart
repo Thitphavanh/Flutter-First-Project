@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_project/pages/add_page.dart';
+import 'package:flutter_first_project/pages/update_todolist_page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
@@ -12,7 +13,13 @@ class TodoList extends StatefulWidget {
 }
 
 class _TodoListState extends State<TodoList> {
-  List todoListItems = ['a', 'b', 'c', 'd'];
+  List todoListItems = [];
+
+  @override
+  void initState() {
+    getTodoList();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +51,17 @@ class _TodoListState extends State<TodoList> {
         return Card(
           child: ListTile(
             title: Text(
-              '${todoListItems[index]}',
+              '${todoListItems[index]['title']}',
             ),
+            onTap: () {
+              // print('xx');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UpdateTodolistPage(),
+                ),
+              );
+            },
           ),
         );
       },
@@ -56,7 +72,11 @@ class _TodoListState extends State<TodoList> {
     List alltodo = [];
     var url = Uri.http('192.168.0.54:8000', '/api/all-todolist');
     var response = await http.get(url);
-    var result = json.decode(response.body);
-    return result;
+    // var result = json.decode(response.body);
+    var result = utf8.decode(response.bodyBytes);
+    print(result);
+    setState(() {
+      todoListItems = jsonDecode(result);
+    });
   }
 }
