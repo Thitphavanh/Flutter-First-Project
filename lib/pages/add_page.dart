@@ -79,9 +79,8 @@ class _AddPageState extends State<AddPage> {
                       print('Title : ${todo_title.text}');
                       print('Detail : ${todo_detail.text}');
                       postTodo();
-                      
 
-                      setState((){
+                      setState(() {
                         todo_title.clear();
                         todo_detail.clear();
                       });

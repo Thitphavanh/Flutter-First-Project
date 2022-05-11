@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_project/pages/add_page.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
 class TodoList extends StatefulWidget {
   const TodoList({Key? key}) : super(key: key);
@@ -47,5 +50,13 @@ class _TodoListState extends State<TodoList> {
         );
       },
     );
+  }
+
+  Future<void> getTodoList() async {
+    List alltodo = [];
+    var url = Uri.http('192.168.0.54:8000', '/api/all-todolist');
+    var response = await http.get(url);
+    var result = json.decode(response.body);
+    return result;
   }
 }
