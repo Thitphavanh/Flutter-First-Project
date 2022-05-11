@@ -54,7 +54,16 @@ class _TodoListState extends State<TodoList> {
               '${todoListItems[index]['title']}',
             ),
             onTap: () {
-              // print('xx');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UpdateTodolistPage(
+                    todoListItems[index]['id'],
+                    todoListItems[index]['title'],
+                    todoListItems[index]['detail'],
+                  ),
+                ),
+              );
             },
           ),
         );

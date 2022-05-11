@@ -27,11 +27,28 @@ class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
     _v1 = widget.v1;
     _v2 = widget.v2;
     _v3 = widget.v3;
+
+    todo_title.text = _v2;
+    todo_detail.text = _v3;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Edit'),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              'Edit',
+              style: TextStyle(
+                color: Colors.red,
+              ),
+            ),
+          ),
+        ],
+      ),
       body: ListView(
         children: [
           Padding(
@@ -45,7 +62,7 @@ class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
                   TextField(
                     controller: todo_title,
                     decoration: InputDecoration(
-                      hintText: 'ລາຍການທີ່ຕ້ອງເຮັດ : ',
+                      hintText: 'ແກ້ໄຂຂໍ້ມູນ : ',
                       hintStyle: const TextStyle(
                         color: Colors.red,
                       ),
@@ -101,7 +118,7 @@ class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
                       });
                     },
                     child: Text(
-                      'ເພີ່ມລາຍການ',
+                      'ແກ້ໄຂ',
                       style: TextStyle(
                         color: Colors.red.shade300,
                         fontSize: 30.0,
