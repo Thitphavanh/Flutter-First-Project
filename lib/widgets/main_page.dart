@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_project/pages/add_product_page.dart';
 import 'package:flutter_first_project/pages/profile_page.dart';
-import 'package:flutter_first_project/pages/todo_list_page.dart';
+import 'package:flutter_first_project/pages/product_list_page.dart';
 import '../pages/about_us_page.dart';
 import '../pages/calculate_page.dart';
 import '../pages/home_page.dart';
@@ -18,7 +18,7 @@ class _MainPageState extends State<MainPage> {
   final tabs = [
     HomePage(),
     CalculatePage(),
-    TodoList(),
+    ProductList(),
     AboutUsPage(),
     ProfilePage(),
   ];
@@ -43,7 +43,7 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Calculate'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add_task), label: 'TodoList'),
+                icon: Icon(Icons.add_task), label: 'Add'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.contact_mail), label: 'About'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),

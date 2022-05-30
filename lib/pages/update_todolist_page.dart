@@ -4,12 +4,15 @@ import 'dart:async';
 import 'dart:convert';
 
 class UpdateTodolistPage extends StatefulWidget {
-  final v1, v2, v3;
+  final v1, v2, v3, v4, v5, v6;
 
   const UpdateTodolistPage(
     this.v1,
     this.v2,
     this.v3,
+    this.v4,
+    this.v5,
+    this.v6,
   );
 
   @override
@@ -17,9 +20,12 @@ class UpdateTodolistPage extends StatefulWidget {
 }
 
 class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
-  var _v1, _v2, _v3, _v4;
-  TextEditingController todo_title = TextEditingController();
-  TextEditingController todo_detail = TextEditingController();
+  var _v1, _v2, _v3, _v4, _v5, _v6;
+  TextEditingController productName = TextEditingController();
+  TextEditingController productDetail = TextEditingController();
+  TextEditingController productPrice = TextEditingController();
+  TextEditingController productSize = TextEditingController();
+  TextEditingController productQuantity = TextEditingController();
 
   @override
   void initState() {
@@ -27,9 +33,15 @@ class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
     _v1 = widget.v1;
     _v2 = widget.v2;
     _v3 = widget.v3;
+    _v4 = widget.v4;
+    _v5 = widget.v5;
+    _v6 = widget.v6;
 
-    todo_title.text = _v2;
-    todo_detail.text = _v3;
+    productName.text = _v2;
+    productDetail.text = _v3;
+    productPrice = _v4;
+    productSize = _v5;
+    productQuantity = _v6;
   }
 
   @override
@@ -60,7 +72,7 @@ class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
               child: Column(
                 children: [
                   TextField(
-                    controller: todo_title,
+                    controller: productName,
                     decoration: InputDecoration(
                       hintText: 'ແກ້ໄຂຂໍ້ມູນ : ',
                       hintStyle: const TextStyle(
@@ -84,7 +96,7 @@ class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
                   TextField(
                     minLines: 4,
                     maxLines: 8,
-                    controller: todo_detail,
+                    controller: productDetail,
                     decoration: InputDecoration(
                       hintText: 'ລາຍລະອຽດ : ',
                       hintStyle: const TextStyle(
@@ -108,13 +120,13 @@ class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
                   TextButton(
                     onPressed: () {
                       print('-----------');
-                      print('Title : ${todo_title.text}');
-                      print('Detail : ${todo_detail.text}');
+                      print('Title : ${productName.text}');
+                      print('Detail : ${productDetail.text}');
                       postTodo();
 
                       setState(() {
-                        todo_title.clear();
-                        todo_detail.clear();
+                        productName.clear();
+                        productDetail.clear();
                       });
                     },
                     child: Text(
@@ -137,10 +149,10 @@ class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
 
   Future postTodo() async {
     // var url = Uri.https('f678-115-84-96-195.ngrok.io', '/api/post-todolist');
-    var url = Uri.http('192.168.0.54:8000', '/api/post-todolist');
+    var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
-        '{"title":"${todo_title.text}","detail":"${todo_detail.text}"}';
+        '{"title":"${productName.text}","detail":"${productDetail.text}"}';
     var response = await http.post(url, headers: header, body: jsondata);
     print(response.body);
   }

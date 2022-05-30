@@ -4,18 +4,45 @@ import 'dart:async';
 import 'dart:convert';
 
 class AddProductPage extends StatefulWidget {
-  const AddProductPage({Key? key}) : super(key: key);
+  final v1, v2, v3, v4, v5, v6;
+
+   AddProductPage(
+    this.v1,
+    this.v2,
+    this.v3,
+    this.v4,
+    this.v5,
+    this.v6,
+  );
 
   @override
   State<AddProductPage> createState() => _AddProductPageState();
 }
 
 class _AddProductPageState extends State<AddProductPage> {
+  var _v1, _v2, _v3, _v4, _v5, _v6;
   TextEditingController productName = TextEditingController();
   TextEditingController productDetail = TextEditingController();
   TextEditingController productPrice = TextEditingController();
   TextEditingController productSize = TextEditingController();
   TextEditingController productQuantity = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _v1 = widget.v1;
+    _v2 = widget.v2;
+    _v3 = widget.v3;
+    _v4 = widget.v4;
+    _v5 = widget.v5;
+    _v6 = widget.v6;
+
+    productName.text = _v2;
+    productDetail.text = _v3;
+    productPrice = _v4;
+    productSize = _v5;
+    productQuantity = _v6;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,145 +60,17 @@ class _AddProductPageState extends State<AddProductPage> {
             child: Center(
               child: Column(
                 children: [
-                  TextField(
-                    controller: productName,
-                    decoration: InputDecoration(
-                      hintText: 'name : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 153, 141, 141),
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
+                  buildProductName(),
                   const SizedBox(height: 20),
-                  TextField(
-                    minLines: 4,
-                    maxLines: 8,
-                    controller: productDetail,
-                    decoration: InputDecoration(
-                      hintText: 'detail : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red.shade300,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
+                  buildProductDetail(),
                   const SizedBox(height: 20),
-                  TextField(
-                    controller: productPrice,
-                    decoration: InputDecoration(
-                      hintText: 'price : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 153, 141, 141),
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
+                  buildProductPrice(),
                   const SizedBox(height: 20),
-                  TextField(
-                    controller: productSize,
-                    decoration: InputDecoration(
-                      hintText: 'size : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 153, 141, 141),
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
+                  buildProductSize(),
                   const SizedBox(height: 20),
-                  TextField(
-                    controller: productQuantity,
-                    decoration: InputDecoration(
-                      hintText: 'quantity : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 153, 141, 141),
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
+                  buildProductQuantity(),
                   const SizedBox(height: 50),
-                  TextButton(
-                    onPressed: () {
-                      print('-----------');
-                      print('Title : ${productName.text}');
-                      print('Detail : ${productName.text}');
-                      print('Price : ${productName.text}');
-                      print('Size : ${productName.text}');
-                      print('Quantity : ${productName.text}');
-                      postTodo();
-
-                      setState(() {
-                        productName.clear();
-                        productDetail.clear();
-                        productPrice.clear();
-                        productSize.clear();
-                        productQuantity.clear();
-                      });
-                    },
-                    child: Text(
-                      'ເພີ່ມລາຍການ',
-                      style: TextStyle(
-                        color: Colors.red.shade300,
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                  buildAddProductButton(),
                 ],
               ),
             ),
@@ -181,12 +80,169 @@ class _AddProductPageState extends State<AddProductPage> {
     );
   }
 
-  Future postTodo() async {
+  TextButton buildAddProductButton() {
+    return TextButton(
+      onPressed: () {
+        print('-----------');
+        print('Name : ${productName.text}');
+        print('Detail : ${productDetail.text}');
+        print('Price : ${productPrice.text}');
+        print('Size : ${productSize.text}');
+        print('Quantity : ${productQuantity.text}');
+        postProduct();
+
+        setState(() {
+          productName.clear();
+          productDetail.clear();
+          productPrice.clear();
+          productSize.clear();
+          productQuantity.clear();
+        });
+      },
+      child: Text(
+        'Add Product',
+        style: TextStyle(
+          color: Colors.red.shade300,
+          fontSize: 30.0,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  TextField buildProductQuantity() {
+    return TextField(
+      keyboardType: TextInputType.number,
+      controller: productQuantity,
+      decoration: InputDecoration(
+        hintText: 'quantity : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Color.fromARGB(255, 153, 141, 141),
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
+  TextField buildProductSize() {
+    return TextField(
+      keyboardType: TextInputType.text,
+      controller: productSize,
+      decoration: InputDecoration(
+        hintText: 'size : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Color.fromARGB(255, 153, 141, 141),
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
+  TextField buildProductPrice() {
+    return TextField(
+      keyboardType: TextInputType.number,
+      controller: productPrice,
+      decoration: InputDecoration(
+        hintText: 'price : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Color.fromARGB(255, 153, 141, 141),
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
+  TextField buildProductDetail() {
+    return TextField(
+      minLines: 4,
+      maxLines: 8,
+      keyboardType: TextInputType.text,
+      controller: productDetail,
+      decoration: InputDecoration(
+        hintText: 'detail : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red.shade300,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
+  TextField buildProductName() {
+    return TextField(
+      keyboardType: TextInputType.name,
+      controller: productName,
+      decoration: InputDecoration(
+        hintText: 'name : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Color.fromARGB(255, 153, 141, 141),
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future postProduct() async {
     // var url = Uri.https('f678-115-84-96-195.ngrok.io', '/api/post-todolist');
-    var url = Uri.http('192.168.0.54:8000', '/api/post-todolist');
+    var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
-        '{"title":"${productName.text}","detail":"${productDetail.text}","price":"${productPrice.text}","size":"${productSize.text}","quantity":"${productQuantity.text}",}';
+        '{"title":"${productName.text}","detail":"${productDetail.text}","price":"${productPrice.text}","size":"${productSize.text}","quantity":"${productQuantity.text}"}';
     var response = await http.post(url, headers: header, body: jsondata);
     print(response.body);
   }

@@ -5,26 +5,26 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-class TodoList extends StatefulWidget {
-  const TodoList({Key? key}) : super(key: key);
+class ProductList extends StatefulWidget {
+  const ProductList({Key? key}) : super(key: key);
 
   @override
-  State<TodoList> createState() => _TodoListState();
+  State<ProductList> createState() => _ProductListState();
 }
 
-class _TodoListState extends State<TodoList> {
-  List todoListItems = [];
+class _ProductListState extends State<ProductList> {
+  List productListItems = [];
 
   @override
   void initState() {
-    getTodoList();
+    getProductList();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: todoListCreate(),
+      body: productListCreate(),
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(8.0),
         child: FloatingActionButton(
@@ -32,7 +32,7 @@ class _TodoListState extends State<TodoList> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => AddProductPage(),
+                builder: (context) =>  AddProductPage(),
               ),
             );
           },
@@ -44,23 +44,26 @@ class _TodoListState extends State<TodoList> {
     );
   }
 
-  Widget todoListCreate() {
+  Widget productListCreate() {
     return ListView.builder(
-      itemCount: todoListItems.length,
+      itemCount: productListItems.length,
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(
             title: Text(
-              '${todoListItems[index]['title']}',
+              '${productListItems[index]['title']}',
             ),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => UpdateTodolistPage(
-                    todoListItems[index]['id'],
-                    todoListItems[index]['title'],
-                    todoListItems[index]['detail'],
+                    productListItems[index]['id'],
+                    productListItems[index]['name'],
+                    productListItems[index]['detail'],
+                    productListItems[index]['price'],
+                    productListItems[index]['size'],
+                    productListItems[index]['quantity'],
                   ),
                 ),
               );
@@ -71,15 +74,15 @@ class _TodoListState extends State<TodoList> {
     );
   }
 
-  Future<void> getTodoList() async {
+  Future<void> getProductList() async {
     List alltodo = [];
-    var url = Uri.http('192.168.0.54:8000', '/api/all-todolist');
+    var url = Uri.http('192.168.0.54:8000', '/api/all-product');
     var response = await http.get(url);
     // var result = json.decode(response.body);
     var result = utf8.decode(response.bodyBytes);
     print(result);
     setState(() {
-      todoListItems = jsonDecode(result);
+      productListItems = jsonDecode(result);
     });
   }
 }
