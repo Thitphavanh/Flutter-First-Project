@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_first_project/pages/add_page.dart';
+import 'package:flutter_first_project/pages/add_product_page.dart';
 import 'package:flutter_first_project/pages/profile_page.dart';
 import 'package:flutter_first_project/pages/todo_list_page.dart';
 import '../pages/about_us_page.dart';
