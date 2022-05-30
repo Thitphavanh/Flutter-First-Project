@@ -3,10 +3,10 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-class UpdateTodolistPage extends StatefulWidget {
+class UpdatProductPage extends StatefulWidget {
   final v1, v2, v3, v4, v5, v6;
 
-  const UpdateTodolistPage(
+  const UpdatProductPage(
     this.v1,
     this.v2,
     this.v3,
@@ -16,10 +16,10 @@ class UpdateTodolistPage extends StatefulWidget {
   );
 
   @override
-  State<UpdateTodolistPage> createState() => _UpdateTodolistPageState();
+  State<UpdatProductPage> createState() => _UpdatProductPageState();
 }
 
-class _UpdateTodolistPageState extends State<UpdateTodolistPage> {
+class _UpdatProductPageState extends State<UpdatProductPage> {
   var _v1, _v2, _v3, _v4, _v5, _v6;
   TextEditingController productName = TextEditingController();
   TextEditingController productDetail = TextEditingController();

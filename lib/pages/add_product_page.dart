@@ -6,7 +6,7 @@ import 'dart:convert';
 class AddProductPage extends StatefulWidget {
   final v1, v2, v3, v4, v5, v6;
 
-   AddProductPage(
+  AddProductPage(
     this.v1,
     this.v2,
     this.v3,
@@ -110,7 +110,7 @@ class _AddProductPageState extends State<AddProductPage> {
     );
   }
 
-  TextField buildProductQuantity() {
+  Widget buildProductQuantity() {
     return TextField(
       keyboardType: TextInputType.number,
       controller: productQuantity,
@@ -135,7 +135,7 @@ class _AddProductPageState extends State<AddProductPage> {
     );
   }
 
-  TextField buildProductSize() {
+  Widget buildProductSize() {
     return TextField(
       keyboardType: TextInputType.text,
       controller: productSize,
@@ -160,7 +160,7 @@ class _AddProductPageState extends State<AddProductPage> {
     );
   }
 
-  TextField buildProductPrice() {
+  Widget buildProductPrice() {
     return TextField(
       keyboardType: TextInputType.number,
       controller: productPrice,
@@ -185,7 +185,7 @@ class _AddProductPageState extends State<AddProductPage> {
     );
   }
 
-  TextField buildProductDetail() {
+  Widget buildProductDetail() {
     return TextField(
       minLines: 4,
       maxLines: 8,
@@ -212,7 +212,7 @@ class _AddProductPageState extends State<AddProductPage> {
     );
   }
 
-  TextField buildProductName() {
+  Widget buildProductName() {
     return TextField(
       keyboardType: TextInputType.name,
       controller: productName,

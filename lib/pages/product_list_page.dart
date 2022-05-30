@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_project/pages/add_product_page.dart';
-import 'package:flutter_first_project/pages/update_todolist_page.dart';
+import 'package:flutter_first_project/pages/update_product_page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
@@ -57,7 +57,7 @@ class _ProductListState extends State<ProductList> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => UpdateTodolistPage(
+                  builder: (context) => AddProductPage(
                     productListItems[index]['id'],
                     productListItems[index]['name'],
                     productListItems[index]['detail'],
