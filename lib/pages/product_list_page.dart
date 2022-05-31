@@ -54,19 +54,19 @@ class _ProductListState extends State<ProductList> {
               '${productListItems[index]['title']}',
             ),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AddProductPage(
-                    productListItems[index]['id'],
-                    productListItems[index]['name'],
-                    productListItems[index]['detail'],
-                    productListItems[index]['price'],
-                    productListItems[index]['size'],
-                    productListItems[index]['quantity'],
-                  ),
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => AddProductPage(
+              //       productListItems[index]['id'],
+              //       productListItems[index]['name'],
+              //       productListItems[index]['detail'],
+              //       productListItems[index]['price'],
+              //       productListItems[index]['size'],
+              //       productListItems[index]['quantity'],
+              //     ),
+              //   ),
+              // );
             },
           ),
         );

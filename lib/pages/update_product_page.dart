@@ -148,11 +148,12 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
   }
 
   Future postTodo() async {
-    // var url = Uri.https('f678-115-84-96-195.ngrok.io', '/api/post-todolist');
+    // var url =
+    //     Uri.https('https://0a62-115-84-94-26.ngrok.io', '/api/post-product');
     var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
-        '{"title":"${productName.text}","detail":"${productDetail.text}"}';
+        '{"name":"${productName.text}","detail":"${productDetail.text}"}';
     var response = await http.post(url, headers: header, body: jsondata);
     print(response.body);
   }
