@@ -104,7 +104,7 @@ class _AddProductPageState extends State<AddProductPage> {
         });
       },
       child: Text(
-        'Add Product',
+        'Add',
         style: TextStyle(
           color: Colors.red.shade300,
           fontSize: 30.0,
@@ -242,7 +242,7 @@ class _AddProductPageState extends State<AddProductPage> {
   }
 
   Future postProduct() async {
-    var url = Uri.https('aa39-115-84-94-26.ngrok.io', '/api/post-product');
+    var url = Uri.https('aa39-115-84-95-224.ngrok.io', '/api/post-product');
     // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =

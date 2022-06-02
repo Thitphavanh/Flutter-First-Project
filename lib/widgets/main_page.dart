@@ -18,7 +18,7 @@ class _MainPageState extends State<MainPage> {
   final tabs = [
     HomePage(),
     CalculatePage(),
-    ProductList(),
+    ProductListPage(),
     AboutUsPage(),
     ProfilePage(),
   ];
@@ -41,7 +41,7 @@ class _MainPageState extends State<MainPage> {
           currentIndex: _currentIndex,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Calculate'),
+            BottomNavigationBarItem(icon: Icon(Icons.calculate), label: 'Calculate'),
             BottomNavigationBarItem(icon: Icon(Icons.add_task), label: 'Add'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.contact_mail), label: 'About'),

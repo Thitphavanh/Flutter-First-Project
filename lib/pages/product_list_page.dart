@@ -5,14 +5,14 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-class ProductList extends StatefulWidget {
-  const ProductList({Key? key}) : super(key: key);
+class ProductListPage extends StatefulWidget {
+  const ProductListPage({Key? key}) : super(key: key);
 
   @override
-  State<ProductList> createState() => _ProductListState();
+  State<ProductListPage> createState() => _ProductListPageState();
 }
 
-class _ProductListState extends State<ProductList> {
+class _ProductListPageState extends State<ProductListPage> {
   List productListItems = [];
 
   @override
