@@ -13,7 +13,7 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage> {
-  List productListItems = ['a', 'b', 'c'];
+  List productListItems = [];
 
   @override
   void initState() {
@@ -55,7 +55,10 @@ class _ProductListPageState extends State<ProductListPage> {
         return Card(
           child: ListTile(
             title: Text(
-              '${productListItems[index]}',
+              '${productListItems[index]['name']}',
+            ),
+            trailing: Text(
+              '${productListItems[index]['price']}',
             ),
             onTap: () {
               // Navigator.push(
