@@ -13,7 +13,7 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage> {
-  List productListItems = [];
+  List productListItems = ['a', 'b', 'c'];
 
   @override
   void initState() {
@@ -24,34 +24,38 @@ class _ProductListPageState extends State<ProductListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: productListCreate(),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>  AddProductPage(),
-              ),
-            );
-          },
-          child: const Icon(
-            Icons.add,
-          ),
+      body: buildproductListCreate(),
+      floatingActionButton: buildFloatingActionButton(context),
+    );
+  }
+
+  Padding buildFloatingActionButton(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddProductPage(),
+            ),
+          );
+        },
+        child: const Icon(
+          Icons.add,
         ),
       ),
     );
   }
 
-  Widget productListCreate() {
+  Widget buildproductListCreate() {
     return ListView.builder(
       itemCount: productListItems.length,
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(
             title: Text(
-              '${productListItems[index]['title']}',
+              '${productListItems[index]}',
             ),
             onTap: () {
               // Navigator.push(
@@ -75,8 +79,9 @@ class _ProductListPageState extends State<ProductListPage> {
   }
 
   Future<void> getProductList() async {
-    List alltodo = [];
-    var url = Uri.http('192.168.0.54:8000', '/api/all-product');
+    List allProduct = [];
+    // var url = Uri.http('192.168.0.54:8000', '/api/all-product');
+    var url = Uri.https('aa39-115-84-95-224.ngrok.io', '/api/all-product');
     var response = await http.get(url);
     // var result = json.decode(response.body);
     var result = utf8.decode(response.bodyBytes);
