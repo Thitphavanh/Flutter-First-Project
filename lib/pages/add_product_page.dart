@@ -242,7 +242,7 @@ class _AddProductPageState extends State<AddProductPage> {
   }
 
   Future postProduct() async {
-    var url = Uri.https('aa39-115-84-95-224.ngrok.io', '/api/post-product');
+    var url = Uri.https('1b0d-115-84-94-106.ngrok.io', '/api/post-product');
     // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =

@@ -116,6 +116,69 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
                       ),
                     ),
                   ),
+                  TextField(
+                    controller: productDetail,
+                    decoration: InputDecoration(
+                      hintText: 'ລາຄາ : ',
+                      hintStyle: const TextStyle(
+                        color: Colors.red,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.red.shade300,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ),
+                  TextField(
+                    controller: productDetail,
+                    decoration: InputDecoration(
+                      hintText: 'ຂະໜາດ : ',
+                      hintStyle: const TextStyle(
+                        color: Colors.red,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.red.shade300,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ),
+                  TextField(
+                    controller: productDetail,
+                    decoration: InputDecoration(
+                      hintText: 'ຈຳນວນ : ',
+                      hintStyle: const TextStyle(
+                        color: Colors.red,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.red.shade300,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 50),
                   TextButton(
                     onPressed: () {
@@ -148,9 +211,8 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
   }
 
   Future postTodo() async {
-    // var url =
-    //     Uri.https('https://0a62-115-84-94-26.ngrok.io', '/api/post-product');
-    var url = Uri.http('192.168.0.54:8000', '/api/post-product');
+    var url = Uri.https('1b0d-115-84-94-106.ngrok.io', '/api/post-product');
+    // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
         '{"name":"${productName.text}","detail":"${productDetail.text}"}';
