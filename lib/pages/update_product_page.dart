@@ -39,9 +39,9 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
 
     productName.text = _v2;
     productDetail.text = _v3;
-    productPrice = _v4;
-    productSize = _v5;
-    productQuantity = _v6;
+    productPrice.text = _v4;
+    productSize.text = _v5.toString();
+    productQuantity.text = _v6.toString();
   }
 
   @override
@@ -73,7 +73,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
                 children: [
                   editProductName(),
                   const SizedBox(height: 20),
-                  editProductDetail(productDetail: productDetail),
+                  editProductDetail(),
                   const SizedBox(height: 20),
                   editProductPrice(),
                   const SizedBox(height: 20),
@@ -86,11 +86,17 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
                       print('-----------');
                       print('Title : ${productName.text}');
                       print('Detail : ${productDetail.text}');
+                      print('Price : ${productPrice.text}');
+                      print('Size : ${productSize.text}');
+                      print('Quantity : ${productQuantity.text}');
                       postTodo();
 
                       setState(() {
                         productName.clear();
                         productDetail.clear();
+                        productPrice.clear();
+                        productSize.clear();
+                        productQuantity.clear();
                       });
                     },
                     child: Text(
@@ -183,6 +189,32 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
     );
   }
 
+  TextField editProductDetail() {
+    return TextField(
+      minLines: 4,
+      maxLines: 8,
+      controller: productDetail,
+      decoration: InputDecoration(
+        hintText: 'ແກ້ໄຂລາຍລະອຽດ : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red.shade300,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
   TextField editProductName() {
     return TextField(
       controller: productName,
@@ -208,48 +240,12 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
   }
 
   Future postTodo() async {
-    var url = Uri.https('1b0d-115-84-94-106.ngrok.io', '/api/post-product');
+    var url = Uri.https('0638-115-84-96-178.ngrok.io', '/api/post-product');
     // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
-        '{"name":"${productName.text}","detail":"${productDetail.text}"}';
+        '{"name":"${productName.text}","detail":"${productDetail.text}","price":"${productPrice.text}","size":"${productSize.text}","quantity":"${productQuantity.text}"}';
     var response = await http.post(url, headers: header, body: jsondata);
     print(response.body);
-  }
-}
-
-class editProductDetail extends StatelessWidget {
-  const editProductDetail({
-    Key? key,
-    required this.productDetail,
-  }) : super(key: key);
-
-  final TextEditingController productDetail;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      minLines: 4,
-      maxLines: 8,
-      controller: productDetail,
-      decoration: InputDecoration(
-        hintText: 'ແກ້ໄຂລາຍລະອຽດ : ',
-        hintStyle: const TextStyle(
-          color: Colors.red,
-        ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red.shade300,
-          ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
-        ),
-      ),
-    );
   }
 }

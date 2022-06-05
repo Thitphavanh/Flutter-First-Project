@@ -4,45 +4,18 @@ import 'dart:async';
 import 'dart:convert';
 
 class AddProductPage extends StatefulWidget {
-  // final v1, v2, v3, v4, v5, v6;
-
-  AddProductPage(
-      // this.v1,
-      // this.v2,
-      // this.v3,
-      // this.v4,
-      // this.v5,
-      // this.v6,
-      );
+  const AddProductPage({Key? key}) : super(key: key);
 
   @override
   State<AddProductPage> createState() => _AddProductPageState();
 }
 
 class _AddProductPageState extends State<AddProductPage> {
-  // var _v1, _v2, _v3, _v4, _v5, _v6;
   TextEditingController productName = TextEditingController();
   TextEditingController productDetail = TextEditingController();
   TextEditingController productPrice = TextEditingController();
   TextEditingController productSize = TextEditingController();
   TextEditingController productQuantity = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    // _v1 = widget.v1;
-    // _v2 = widget.v2;
-    // _v3 = widget.v3;
-    // _v4 = widget.v4;
-    // _v5 = widget.v5;
-    // _v6 = widget.v6;
-
-    // productName.text = _v2;
-    // productDetail.text = _v3;
-    // productPrice = _v4;
-    // productSize = _v5;
-    // productQuantity = _v6;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -242,7 +215,7 @@ class _AddProductPageState extends State<AddProductPage> {
   }
 
   Future postProduct() async {
-    var url = Uri.https('1b0d-115-84-94-106.ngrok.io', '/api/post-product');
+    var url = Uri.https('0638-115-84-96-178.ngrok.io', '/api/post-product');
     // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =

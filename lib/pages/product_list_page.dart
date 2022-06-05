@@ -37,7 +37,7 @@ class _ProductListPageState extends State<ProductListPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddProductPage(),
+              builder: (context) => const AddProductPage(),
             ),
           );
         },
@@ -57,17 +57,20 @@ class _ProductListPageState extends State<ProductListPage> {
             title: Text(
               '${productListItems[index]['name']}',
             ),
-            trailing: Text(
-              '${productListItems[index]['price']}',
-            ),
+            trailing: Text('${productListItems[index]['price']}'),
             onTap: () {
-              UpdatProductPage(
-                productListItems[index]['id'],
-                productListItems[index]['name'],
-                productListItems[index]['detail'],
-                productListItems[index]['price'],
-                productListItems[index]['size'],
-                productListItems[index]['quantity'],
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UpdatProductPage(
+                    productListItems[index]['id'],
+                    productListItems[index]['name'],
+                    productListItems[index]['detail'],
+                    productListItems[index]['price'],
+                    productListItems[index]['size'],
+                    productListItems[index]['quantity'],
+                  ),
+                ),
               );
             },
           ),
@@ -79,7 +82,7 @@ class _ProductListPageState extends State<ProductListPage> {
   Future<void> getProductList() async {
     List allProduct = [];
     // var url = Uri.http('192.168.0.54:8000', '/api/all-product');
-    var url = Uri.https('1b0d-115-84-94-106.ngrok.io', '/api/all-product');
+    var url = Uri.https('0638-115-84-96-178.ngrok.io', '/api/all-product');
     var response = await http.get(url);
     var result = utf8.decode(response.bodyBytes);
     print(result);
