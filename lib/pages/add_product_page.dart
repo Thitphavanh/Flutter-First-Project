@@ -119,7 +119,7 @@ class _AddProductPageState extends State<AddProductPage> {
       keyboardType: TextInputType.number,
       controller: productQuantity,
       decoration: InputDecoration(
-        hintText: 'quantity : ',
+        hintText: 'ຈຳນວນ : ',
         hintStyle: const TextStyle(
           color: Colors.red,
         ),
@@ -144,7 +144,7 @@ class _AddProductPageState extends State<AddProductPage> {
       keyboardType: TextInputType.text,
       controller: productSize,
       decoration: InputDecoration(
-        hintText: 'size : ',
+        hintText: 'ຂະໜາດ : ',
         hintStyle: const TextStyle(
           color: Colors.red,
         ),
@@ -169,7 +169,7 @@ class _AddProductPageState extends State<AddProductPage> {
       keyboardType: TextInputType.number,
       controller: productPrice,
       decoration: InputDecoration(
-        hintText: 'price : ',
+        hintText: 'ລາຄາ : ',
         hintStyle: const TextStyle(
           color: Colors.red,
         ),
@@ -196,7 +196,7 @@ class _AddProductPageState extends State<AddProductPage> {
       keyboardType: TextInputType.text,
       controller: productDetail,
       decoration: InputDecoration(
-        hintText: 'detail : ',
+        hintText: 'ລາຍລະອຽດ : ',
         hintStyle: const TextStyle(
           color: Colors.red,
         ),
@@ -221,7 +221,7 @@ class _AddProductPageState extends State<AddProductPage> {
       keyboardType: TextInputType.name,
       controller: productName,
       decoration: InputDecoration(
-        hintText: 'name : ',
+        hintText: 'ຊື່ : ',
         hintStyle: const TextStyle(
           color: Colors.red,
         ),

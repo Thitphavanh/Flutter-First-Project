@@ -61,19 +61,14 @@ class _ProductListPageState extends State<ProductListPage> {
               '${productListItems[index]['price']}',
             ),
             onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => AddProductPage(
-              //       productListItems[index]['id'],
-              //       productListItems[index]['name'],
-              //       productListItems[index]['detail'],
-              //       productListItems[index]['price'],
-              //       productListItems[index]['size'],
-              //       productListItems[index]['quantity'],
-              //     ),
-              //   ),
-              // );
+              UpdatProductPage(
+                productListItems[index]['id'],
+                productListItems[index]['name'],
+                productListItems[index]['detail'],
+                productListItems[index]['price'],
+                productListItems[index]['size'],
+                productListItems[index]['quantity'],
+              );
             },
           ),
         );
@@ -86,7 +81,6 @@ class _ProductListPageState extends State<ProductListPage> {
     // var url = Uri.http('192.168.0.54:8000', '/api/all-product');
     var url = Uri.https('1b0d-115-84-94-106.ngrok.io', '/api/all-product');
     var response = await http.get(url);
-    // var result = json.decode(response.body);
     var result = utf8.decode(response.bodyBytes);
     print(result);
     setState(() {

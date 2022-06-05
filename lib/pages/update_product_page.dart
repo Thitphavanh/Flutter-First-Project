@@ -71,114 +71,15 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
             child: Center(
               child: Column(
                 children: [
-                  TextField(
-                    controller: productName,
-                    decoration: InputDecoration(
-                      hintText: 'ແກ້ໄຂຂໍ້ມູນ : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 153, 141, 141),
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
+                  editProductName(),
                   const SizedBox(height: 20),
-                  TextField(
-                    minLines: 4,
-                    maxLines: 8,
-                    controller: productDetail,
-                    decoration: InputDecoration(
-                      hintText: 'ລາຍລະອຽດ : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red.shade300,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: productDetail,
-                    decoration: InputDecoration(
-                      hintText: 'ລາຄາ : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red.shade300,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: productDetail,
-                    decoration: InputDecoration(
-                      hintText: 'ຂະໜາດ : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red.shade300,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: productDetail,
-                    decoration: InputDecoration(
-                      hintText: 'ຈຳນວນ : ',
-                      hintStyle: const TextStyle(
-                        color: Colors.red,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red.shade300,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
+                  editProductDetail(productDetail: productDetail),
+                  const SizedBox(height: 20),
+                  editProductPrice(),
+                  const SizedBox(height: 20),
+                  editProductSize(),
+                  const SizedBox(height: 20),
+                  editProductQuantity(),
                   const SizedBox(height: 50),
                   TextButton(
                     onPressed: () {
@@ -210,6 +111,102 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
     );
   }
 
+  TextField editProductQuantity() {
+    return TextField(
+      controller: productQuantity,
+      decoration: InputDecoration(
+        hintText: 'ແກ້ໄຂຈຳນວນ : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red.shade300,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
+  TextField editProductSize() {
+    return TextField(
+      controller: productSize,
+      decoration: InputDecoration(
+        hintText: 'ແກ້ໄຂຂະໜາດ : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red.shade300,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
+  TextField editProductPrice() {
+    return TextField(
+      controller: productPrice,
+      decoration: InputDecoration(
+        hintText: 'ແກ້ໄຂລາຄາ : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red.shade300,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
+  TextField editProductName() {
+    return TextField(
+      controller: productName,
+      decoration: InputDecoration(
+        hintText: 'ແກ້ໄຂຊື່ : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Color.fromARGB(255, 153, 141, 141),
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
+  }
+
   Future postTodo() async {
     var url = Uri.https('1b0d-115-84-94-106.ngrok.io', '/api/post-product');
     // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
@@ -218,5 +215,41 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         '{"name":"${productName.text}","detail":"${productDetail.text}"}';
     var response = await http.post(url, headers: header, body: jsondata);
     print(response.body);
+  }
+}
+
+class editProductDetail extends StatelessWidget {
+  const editProductDetail({
+    Key? key,
+    required this.productDetail,
+  }) : super(key: key);
+
+  final TextEditingController productDetail;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      minLines: 4,
+      maxLines: 8,
+      controller: productDetail,
+      decoration: InputDecoration(
+        hintText: 'ແກ້ໄຂລາຍລະອຽດ : ',
+        hintStyle: const TextStyle(
+          color: Colors.red,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red.shade300,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
   }
 }
