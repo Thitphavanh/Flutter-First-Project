@@ -30,7 +30,7 @@ class _ProductListPageState extends State<ProductListPage> {
         foregroundColor: Colors.black,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right:12.0),
+            padding: const EdgeInsets.only(right: 12.0),
             child: TextButton(
               onPressed: () {
                 setState(() {
@@ -62,7 +62,12 @@ class _ProductListPageState extends State<ProductListPage> {
             MaterialPageRoute(
               builder: (context) => const AddProductPage(),
             ),
-          );
+          ).then((value) {
+            setState(() {
+              getProductList();
+            });
+          });
+          ;
         },
         child: const Icon(
           Icons.add,
@@ -96,7 +101,18 @@ class _ProductListPageState extends State<ProductListPage> {
                     productListItems[index]['quantity'],
                   ),
                 ),
-              );
+              ).then((value) {
+                setState(() {
+                  if (value == 'delete') {
+                    final snackBar = SnackBar(
+                      content: const Text('ລົບລາຍການສຳເລັດ'),
+                    );
+
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  }
+                  getProductList();
+                });
+              });
             },
           ),
         );

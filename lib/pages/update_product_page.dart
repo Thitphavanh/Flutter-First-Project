@@ -58,10 +58,16 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
           TextButton(
             onPressed: () {
               deleteProduct();
-              Navigator.pop(context);
+              Navigator.pop(context, 'delete');
+              // Navigator.pop(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => const ProductListPage(),
+              //   ),
+              // );
             },
             child: const Text(
-              'Delete',
+              'DELETE',
               style: TextStyle(
                 color: Colors.red,
               ),
@@ -104,6 +110,12 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
                           builder: (context) => const ProductListPage(),
                         ),
                       );
+
+                      final snackBar = SnackBar(
+                        content: const Text('ແກ້ໄຂລາຍການສຳເລັດ'),
+                      );
+
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
                       setState(() {});
                     },
