@@ -52,7 +52,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Edit'),
+        title: const Text('Update Product'),
         actions: [
           TextButton(
             onPressed: () {},
@@ -206,7 +206,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ແກ້ໄຂຂະໜາດ :',
-          icon: Icon(Icons.description_sharp),
+          icon: Icon(Icons.format_size_sharp),
         ),
       ),
       decoration: BoxDecoration(
@@ -258,7 +258,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ແກ້ໄຂລາຄາ :',
-          icon: Icon(Icons.description_sharp),
+          icon: Icon(Icons.price_change),
         ),
       ),
       decoration: BoxDecoration(
@@ -312,7 +312,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ແກ້ໄຂລາຍລະອຽດ :',
-          icon: Icon(Icons.price_change),
+          icon: Icon(Icons.list_alt),
         ),
       ),
       decoration: BoxDecoration(
@@ -363,7 +363,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         keyboardType: TextInputType.name,
         decoration: const InputDecoration(
           border: InputBorder.none,
-          hintText: 'ແກ້ໄຂຊື່ :',
+          hintText: 'ແກ້ໄຂຊື່ສິນຄ້າ :',
           icon: Icon(Icons.person),
         ),
       ),

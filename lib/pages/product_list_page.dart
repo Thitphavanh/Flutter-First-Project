@@ -24,7 +24,26 @@ class _ProductListPageState extends State<ProductListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        actions: [
+          TextButton(
+            onPressed: () {
+              setState(() {
+                getProductList();
+              });
+            },
+            child: const Text(
+              'Refresh',
+              style: TextStyle(
+                color: Colors.red,
+              ),
+            ),
+          ),
+        ],
+      ),
       body: buildproductListCreate(),
       floatingActionButton: buildFloatingActionButton(context),
     );
@@ -43,8 +62,10 @@ class _ProductListPageState extends State<ProductListPage> {
           );
         },
         child: const Icon(
-          Icons.add,color: Colors.red,
-        ),backgroundColor: Colors.white,
+          Icons.add,
+          color: Colors.red,
+        ),
+        backgroundColor: Colors.white,
       ),
     );
   }

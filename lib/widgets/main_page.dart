@@ -30,6 +30,7 @@ class _MainPageState extends State<MainPage> {
       behavior: HitTestBehavior.opaque,
       child: Scaffold(
         appBar: AppBar(
+          
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.white,

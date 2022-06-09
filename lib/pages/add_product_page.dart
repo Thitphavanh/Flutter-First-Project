@@ -25,7 +25,7 @@ class _AddProductPageState extends State<AddProductPage> {
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Add'),
+        title: const Text('Add Product'),
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -81,7 +81,7 @@ class _AddProductPageState extends State<AddProductPage> {
         });
       },
       child: Text(
-        'Add',
+        'ເພີ່ມ',
         style: TextStyle(
           color: Colors.red.shade300,
           fontSize: 30.0,
@@ -184,7 +184,7 @@ class _AddProductPageState extends State<AddProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ຂະໜາດ :',
-          icon: Icon(Icons.description_sharp),
+          icon: Icon(Icons.format_size_sharp),
         ),
       ),
       decoration: BoxDecoration(
@@ -345,7 +345,7 @@ class _AddProductPageState extends State<AddProductPage> {
         keyboardType: TextInputType.name,
         decoration: const InputDecoration(
           border: InputBorder.none,
-          hintText: 'ຊື່ :',
+          hintText: 'ຊື່ສິນຄ້າ :',
           icon: Icon(Icons.person),
         ),
       ),
