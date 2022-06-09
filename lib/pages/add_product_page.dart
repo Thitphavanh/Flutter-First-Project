@@ -367,8 +367,8 @@ class _AddProductPageState extends State<AddProductPage> {
   }
 
   Future postProduct() async {
-    var url = Uri.https('ffed-115-84-95-106.ngrok.io', '/api/post-product');
-    // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
+    // var url = Uri.https('6d8f-115-84-95-131.ngrok.io', '/api/post-product');
+    var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
         '{"name":"${productName.text}","detail":"${productDetail.text}","price":"${productPrice.text}","size":"${productSize.text}","quantity":"${productQuantity.text}"}';

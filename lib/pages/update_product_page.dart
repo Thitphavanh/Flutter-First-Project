@@ -96,11 +96,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
                       updateProduct();
 
                       setState(() {
-                        productName.clear();
-                        productDetail.clear();
-                        productPrice.clear();
-                        productSize.clear();
-                        productQuantity.clear();
+                
                       });
                     },
                     child: Text(
@@ -253,12 +249,12 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         left: 20.0,
       ),
       child: TextFormField(
-        controller: productPrice,
+        controller: productDetail,
         keyboardType: TextInputType.text,
         decoration: const InputDecoration(
           border: InputBorder.none,
-          hintText: 'ແກ້ໄຂລາຄາ :',
-          icon: Icon(Icons.price_change),
+          hintText: 'ແກ້ໄຂລາຍລະອຽດ :',
+          icon: Icon(Icons.list_alt),
         ),
       ),
       decoration: BoxDecoration(
@@ -307,12 +303,12 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         left: 20.0,
       ),
       child: TextFormField(
-        controller: productDetail,
+        controller: productPrice,
         keyboardType: TextInputType.number,
         decoration: const InputDecoration(
           border: InputBorder.none,
-          hintText: 'ແກ້ໄຂລາຍລະອຽດ :',
-          icon: Icon(Icons.list_alt),
+          hintText: 'ແກ້ໄຂລາຄາ :',
+          icon: Icon(Icons.price_change),
         ),
       ),
       decoration: BoxDecoration(
@@ -385,12 +381,13 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
   }
 
   Future updateProduct() async {
-    var url = Uri.https('ffed-115-84-95-106.ngrok.io', '/api/update-product');
-    // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
+    // var url = Uri.https('6d8f-115-84-95-131.ngrok.io', '/api/update-product/$_v1');
+    var url = Uri.http('192.168.0.54:8000', '/api/update-product/$_v1');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
         '{"name":"${productName.text}","detail":"${productDetail.text}","price":"${productPrice.text}","size":"${productSize.text}","quantity":"${productQuantity.text}"}';
-    var response = await http.post(url, headers: header, body: jsondata);
+    var response = await http.put(url, headers: header, body: jsondata);
+    print('-------Result-------');
     print(response.body);
   }
 }
