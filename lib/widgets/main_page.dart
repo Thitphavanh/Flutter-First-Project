@@ -30,6 +30,10 @@ class _MainPageState extends State<MainPage> {
       behavior: HitTestBehavior.opaque,
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
           title: Text('Phenomenal'),
         ),
         body: tabs[_currentIndex],
@@ -41,7 +45,8 @@ class _MainPageState extends State<MainPage> {
           currentIndex: _currentIndex,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.calculate), label: 'Calculate'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.calculate), label: 'Calculate'),
             BottomNavigationBarItem(icon: Icon(Icons.add_task), label: 'Add'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.contact_mail), label: 'About'),

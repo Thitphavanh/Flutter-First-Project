@@ -48,6 +48,10 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
         title: Text('Edit'),
         actions: [
           TextButton(
@@ -240,7 +244,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
   }
 
   Future postTodo() async {
-    var url = Uri.https('0638-115-84-96-178.ngrok.io', '/api/post-product');
+    var url = Uri.https('3502-115-84-95-106.ngrok.io', '/api/post-product');
     // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
