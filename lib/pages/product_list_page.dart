@@ -29,16 +29,19 @@ class _ProductListPageState extends State<ProductListPage> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         actions: [
-          TextButton(
-            onPressed: () {
-              setState(() {
-                getProductList();
-              });
-            },
-            child: const Text(
-              'Refresh',
-              style: TextStyle(
-                color: Colors.red,
+          Padding(
+            padding: const EdgeInsets.only(right:12.0),
+            child: TextButton(
+              onPressed: () {
+                setState(() {
+                  getProductList();
+                });
+              },
+              child: const Text(
+                'Refresh',
+                style: TextStyle(
+                  color: Colors.red,
+                ),
               ),
             ),
           ),
