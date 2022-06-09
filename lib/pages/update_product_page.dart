@@ -93,7 +93,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
                       print('Price : ${productPrice.text}');
                       print('Size : ${productSize.text}');
                       print('Quantity : ${productQuantity.text}');
-                      postTodo();
+                      updateProduct();
 
                       setState(() {
                         productName.clear();
@@ -384,8 +384,8 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
     );
   }
 
-  Future postTodo() async {
-    var url = Uri.https('ffed-115-84-95-106.ngrok.io', '/api/post-product');
+  Future updateProduct() async {
+    var url = Uri.https('ffed-115-84-95-106.ngrok.io', '/api/update-product');
     // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
