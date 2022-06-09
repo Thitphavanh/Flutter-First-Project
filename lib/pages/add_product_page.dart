@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_project/pages/product_list_page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
@@ -42,9 +43,9 @@ class _AddProductPageState extends State<AddProductPage> {
                   children: [
                     buildProductName(),
                     const SizedBox(height: 20),
-                    buildProductDetail(),
-                    const SizedBox(height: 20),
                     buildProductPrice(),
+                    const SizedBox(height: 20),
+                    buildProductDetail(),
                     const SizedBox(height: 20),
                     buildProductSize(),
                     const SizedBox(height: 20),
@@ -71,6 +72,12 @@ class _AddProductPageState extends State<AddProductPage> {
         print('Size : ${productSize.text}');
         print('Quantity : ${productQuantity.text}');
         postProduct();
+        Navigator.pop(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ProductListPage(),
+          ),
+        );
 
         setState(() {
           productName.clear();
@@ -204,59 +211,6 @@ class _AddProductPageState extends State<AddProductPage> {
     );
   }
 
-  Container buildProductPrice() {
-    // return TextField(
-    //   keyboardType: TextInputType.number,
-    //   controller: productPrice,
-    //   decoration: InputDecoration(
-    //     hintText: 'ລາຄາ : ',
-    //     hintStyle: const TextStyle(
-    //       color: Colors.red,
-    //     ),
-    //     border: OutlineInputBorder(
-    //       borderSide: const BorderSide(
-    //         color: Color.fromARGB(255, 153, 141, 141),
-    //       ),
-    //       borderRadius: BorderRadius.circular(10),
-    //     ),
-    //     focusedBorder: OutlineInputBorder(
-    //       borderRadius: BorderRadius.circular(10),
-    //       borderSide: const BorderSide(
-    //         color: Colors.red,
-    //       ),
-    //     ),
-    //   ),
-    // );
-    return Container(
-      padding: const EdgeInsets.only(
-        left: 20.0,
-      ),
-      child: TextFormField(
-        controller: productPrice,
-        keyboardType: TextInputType.number,
-        decoration: const InputDecoration(
-          border: InputBorder.none,
-          hintText: 'ລາຄາ :',
-          icon: Icon(Icons.price_change),
-        ),
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(
-          20.0,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(.5),
-            spreadRadius: 2.0,
-            blurRadius: 15.0,
-            offset: const Offset(0, 0),
-          ),
-        ],
-      ),
-    );
-  }
-
   Container buildProductDetail() {
     // return TextField(
     //   minLines: 4,
@@ -294,6 +248,59 @@ class _AddProductPageState extends State<AddProductPage> {
           border: InputBorder.none,
           hintText: 'ລາຍລະອຽດ :',
           icon: Icon(Icons.list_alt),
+        ),
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(
+          20.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(.5),
+            spreadRadius: 2.0,
+            blurRadius: 15.0,
+            offset: const Offset(0, 0),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container buildProductPrice() {
+    // return TextField(
+    //   keyboardType: TextInputType.number,
+    //   controller: productPrice,
+    //   decoration: InputDecoration(
+    //     hintText: 'ລາຄາ : ',
+    //     hintStyle: const TextStyle(
+    //       color: Colors.red,
+    //     ),
+    //     border: OutlineInputBorder(
+    //       borderSide: const BorderSide(
+    //         color: Color.fromARGB(255, 153, 141, 141),
+    //       ),
+    //       borderRadius: BorderRadius.circular(10),
+    //     ),
+    //     focusedBorder: OutlineInputBorder(
+    //       borderRadius: BorderRadius.circular(10),
+    //       borderSide: const BorderSide(
+    //         color: Colors.red,
+    //       ),
+    //     ),
+    //   ),
+    // );
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 20.0,
+      ),
+      child: TextFormField(
+        controller: productPrice,
+        keyboardType: TextInputType.number,
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'ລາຄາ :',
+          icon: Icon(Icons.price_change),
         ),
       ),
       decoration: BoxDecoration(
@@ -375,4 +382,6 @@ class _AddProductPageState extends State<AddProductPage> {
     var response = await http.post(url, headers: header, body: jsondata);
     print(response.body);
   }
+
+  
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_project/pages/product_list_page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
@@ -55,7 +56,10 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         title: const Text('Update Product'),
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              deleteProduct();
+              Navigator.pop(context);
+            },
             child: const Text(
               'Delete',
               style: TextStyle(
@@ -94,10 +98,14 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
                       print('Size : ${productSize.text}');
                       print('Quantity : ${productQuantity.text}');
                       updateProduct();
+                      Navigator.pop(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProductListPage(),
+                        ),
+                      );
 
-                      setState(() {
-                
-                      });
+                      setState(() {});
                     },
                     child: Text(
                       'ແກ້ໄຂ',
@@ -388,6 +396,13 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         '{"name":"${productName.text}","detail":"${productDetail.text}","price":"${productPrice.text}","size":"${productSize.text}","quantity":"${productQuantity.text}"}';
     var response = await http.put(url, headers: header, body: jsondata);
     print('-------Result-------');
+    print(response.body);
+  }
+
+  Future deleteProduct() async {
+    var url = Uri.http('192.168.0.54:8000', '/api/delete-product/$_v1');
+    Map<String, String> header = {"Content-type": "application/json"};
+    var response = await http.delete(url, headers: header);
     print(response.body);
   }
 }
