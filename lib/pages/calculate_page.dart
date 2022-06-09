@@ -85,52 +85,110 @@ class _CalculatePageState extends State<CalculatePage> {
     );
   }
 
-  Widget buildPriceField() {
-    return TextField(
-      controller: price,
-      decoration: InputDecoration(
-        hintText: 'ລາຄາຂົນສົ່ງ : ',
-        hintStyle: const TextStyle(
-          color: Colors.red,
+  Container buildPriceField() {
+    // return TextField(
+    //   controller: price,
+    //   decoration: InputDecoration(
+    //     hintText: 'ລາຄາຂົນສົ່ງ : ',
+    //     hintStyle: const TextStyle(
+    //       color: Colors.red,
+    //     ),
+    //     border: OutlineInputBorder(
+    //       borderSide: BorderSide(
+    //         color: Colors.red.shade300,
+    //       ),
+    //       borderRadius: BorderRadius.circular(10),
+    //     ),
+    //     focusedBorder: OutlineInputBorder(
+    //       borderRadius: BorderRadius.circular(10),
+    //       borderSide: const BorderSide(
+    //         color: Colors.red,
+    //       ),
+    //     ),
+    //   ),
+    // );
+     return Container(
+      padding: const EdgeInsets.only(
+        left: 20.0,
+      ),
+      child: TextFormField(
+        controller: price,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'ລາຄາຂົນສົ່ງ :',
+          icon: Icon(Icons.price_change),
         ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red.shade300,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(
+          20.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(.5),
+            spreadRadius: 2.0,
+            blurRadius: 15.0,
+            offset: const Offset(0, 0),
           ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
-        ),
+        ],
       ),
     );
   }
 
+
   Widget buildQuantityField() {
-    return TextField(
-      controller: quantity,
-      decoration: InputDecoration(
-        hintText: 'ຈຳນວນກິໂລ : ',
-        hintStyle: const TextStyle(
-          color: Colors.red,
-        ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red.shade300,
-          ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
+    // return TextField(
+    //   controller: quantity,
+    //   decoration: InputDecoration(
+    //     hintText: 'ຈຳນວນກິໂລ : ',
+    //     hintStyle: const TextStyle(
+    //       color: Colors.red,
+    //     ),
+    //     border: OutlineInputBorder(
+    //       borderSide: BorderSide(
+    //         color: Colors.red.shade300,
+    //       ),
+    //       borderRadius: BorderRadius.circular(10),
+    //     ),
+    //     focusedBorder: OutlineInputBorder(
+    //       borderRadius: BorderRadius.circular(10),
+    //       borderSide: const BorderSide(
+    //         color: Colors.red,
+    //       ),
+    //     ),
+    //   ),
+    // );
+     return Container(
+      padding: const EdgeInsets.only(
+        left: 20.0,
+      ),
+      child: TextFormField(
+        controller: quantity,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'ຈຳນວນກິໂລ :',
+          icon: Icon(Icons.calculate),
         ),
       ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(
+          20.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(.5),
+            spreadRadius: 2.0,
+            blurRadius: 15.0,
+            offset: const Offset(0, 0),
+          ),
+        ],
+      ),
     );
+    
   }
 
   Widget buildText() {

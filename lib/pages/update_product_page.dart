@@ -52,11 +52,11 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: Text('Edit'),
+        title: const Text('Edit'),
         actions: [
           TextButton(
             onPressed: () {},
-            child: Text(
+            child: const Text(
               'Delete',
               style: TextStyle(
                 color: Colors.red,
@@ -121,130 +121,271 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
     );
   }
 
-  TextField editProductQuantity() {
-    return TextField(
-      controller: productQuantity,
-      decoration: InputDecoration(
-        hintText: 'ແກ້ໄຂຈຳນວນ : ',
-        hintStyle: const TextStyle(
-          color: Colors.red,
+  Container editProductQuantity() {
+    // return TextField(
+    //   controller: productQuantity,
+    //   decoration: InputDecoration(
+    //     hintText: 'ແກ້ໄຂຈຳນວນ : ',
+    //     hintStyle: const TextStyle(
+    //       color: Colors.red,
+    //     ),
+    //     border: OutlineInputBorder(
+    //       borderSide: BorderSide(
+    //         color: Colors.red.shade300,
+    //       ),
+    //       borderRadius: BorderRadius.circular(10),
+    //     ),
+    //     focusedBorder: OutlineInputBorder(
+    //       borderRadius: BorderRadius.circular(10),
+    //       borderSide: const BorderSide(
+    //         color: Colors.red,
+    //       ),
+    //     ),
+    //   ),
+    // );
+
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 20.0,
+      ),
+      child: TextFormField(
+        controller: productQuantity,
+        keyboardType: TextInputType.number,
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'ແກ້ໄຂຈຳນວນ :',
+          icon: Icon(Icons.calculate),
         ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red.shade300,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(
+          20.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(.5),
+            spreadRadius: 2.0,
+            blurRadius: 15.0,
+            offset: const Offset(0, 0),
           ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
-        ),
+        ],
       ),
     );
   }
 
-  TextField editProductSize() {
-    return TextField(
-      controller: productSize,
-      decoration: InputDecoration(
-        hintText: 'ແກ້ໄຂຂະໜາດ : ',
-        hintStyle: const TextStyle(
-          color: Colors.red,
+  Container editProductSize() {
+    // return TextField(
+    //   controller: productSize,
+    //   decoration: InputDecoration(
+    //     hintText: 'ແກ້ໄຂຂະໜາດ : ',
+    //     hintStyle: const TextStyle(
+    //       color: Colors.red,
+    //     ),
+    //     border: OutlineInputBorder(
+    //       borderSide: BorderSide(
+    //         color: Colors.red.shade300,
+    //       ),
+    //       borderRadius: BorderRadius.circular(10),
+    //     ),
+    //     focusedBorder: OutlineInputBorder(
+    //       borderRadius: BorderRadius.circular(10),
+    //       borderSide: const BorderSide(
+    //         color: Colors.red,
+    //       ),
+    //     ),
+    //   ),
+    // );
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 20.0,
+      ),
+      child: TextFormField(
+        controller: productSize,
+        keyboardType: TextInputType.text,
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'ແກ້ໄຂຂະໜາດ :',
+          icon: Icon(Icons.description_sharp),
         ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red.shade300,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(
+          20.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(.5),
+            spreadRadius: 2.0,
+            blurRadius: 15.0,
+            offset: const Offset(0, 0),
           ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
-        ),
+        ],
       ),
     );
   }
 
-  TextField editProductPrice() {
-    return TextField(
-      controller: productPrice,
-      decoration: InputDecoration(
-        hintText: 'ແກ້ໄຂລາຄາ : ',
-        hintStyle: const TextStyle(
-          color: Colors.red,
+  Container editProductPrice() {
+    // return TextField(
+    //   controller: productPrice,
+    //   decoration: InputDecoration(
+    //     hintText: 'ແກ້ໄຂລາຄາ : ',
+    //     hintStyle: const TextStyle(
+    //       color: Colors.red,
+    //     ),
+    //     border: OutlineInputBorder(
+    //       borderSide: BorderSide(
+    //         color: Colors.red.shade300,
+    //       ),
+    //       borderRadius: BorderRadius.circular(10),
+    //     ),
+    //     focusedBorder: OutlineInputBorder(
+    //       borderRadius: BorderRadius.circular(10),
+    //       borderSide: const BorderSide(
+    //         color: Colors.red,
+    //       ),
+    //     ),
+    //   ),
+    // );
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 20.0,
+      ),
+      child: TextFormField(
+        controller: productPrice,
+        keyboardType: TextInputType.text,
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'ແກ້ໄຂລາຄາ :',
+          icon: Icon(Icons.description_sharp),
         ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red.shade300,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(
+          20.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(.5),
+            spreadRadius: 2.0,
+            blurRadius: 15.0,
+            offset: const Offset(0, 0),
           ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
-        ),
+        ],
       ),
     );
   }
 
-  TextField editProductDetail() {
-    return TextField(
-      minLines: 4,
-      maxLines: 8,
-      controller: productDetail,
-      decoration: InputDecoration(
-        hintText: 'ແກ້ໄຂລາຍລະອຽດ : ',
-        hintStyle: const TextStyle(
-          color: Colors.red,
+  Container editProductDetail() {
+    // return TextField(
+    //   minLines: 4,
+    //   maxLines: 8,
+    //   controller: productDetail,
+    //   decoration: InputDecoration(
+    //     hintText: 'ແກ້ໄຂລາຍລະອຽດ : ',
+    //     hintStyle: const TextStyle(
+    //       color: Colors.red,
+    //     ),
+    //     border: OutlineInputBorder(
+    //       borderSide: BorderSide(
+    //         color: Colors.red.shade300,
+    //       ),
+    //       borderRadius: BorderRadius.circular(10),
+    //     ),
+    //     focusedBorder: OutlineInputBorder(
+    //       borderRadius: BorderRadius.circular(10),
+    //       borderSide: const BorderSide(
+    //         color: Colors.red,
+    //       ),
+    //     ),
+    //   ),
+    // );
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 20.0,
+      ),
+      child: TextFormField(
+        controller: productDetail,
+        keyboardType: TextInputType.number,
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'ແກ້ໄຂລາຍລະອຽດ :',
+          icon: Icon(Icons.price_change),
         ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red.shade300,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(
+          20.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(.5),
+            spreadRadius: 2.0,
+            blurRadius: 15.0,
+            offset: const Offset(0, 0),
           ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
-        ),
+        ],
       ),
     );
   }
 
-  TextField editProductName() {
-    return TextField(
-      controller: productName,
-      decoration: InputDecoration(
-        hintText: 'ແກ້ໄຂຊື່ : ',
-        hintStyle: const TextStyle(
-          color: Colors.red,
+  Container editProductName() {
+    // return TextField(
+    //   controller: productName,
+    //   decoration: InputDecoration(
+    //     hintText: 'ແກ້ໄຂຊື່ : ',
+    //     hintStyle: const TextStyle(
+    //       color: Colors.red,
+    //     ),
+    //     border: OutlineInputBorder(
+    //       borderSide: const BorderSide(
+    //         color: Color.fromARGB(255, 153, 141, 141),
+    //       ),
+    //       borderRadius: BorderRadius.circular(10),
+    //     ),
+    //     focusedBorder: OutlineInputBorder(
+    //       borderRadius: BorderRadius.circular(10),
+    //       borderSide: const BorderSide(
+    //         color: Colors.red,
+    //       ),
+    //     ),
+    //   ),
+    // );
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 20.0,
+      ),
+      child: TextFormField(
+        controller: productName,
+        keyboardType: TextInputType.name,
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'ແກ້ໄຂຊື່ :',
+          icon: Icon(Icons.person),
         ),
-        border: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Color.fromARGB(255, 153, 141, 141),
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(
+          20.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(.5),
+            spreadRadius: 2.0,
+            blurRadius: 15.0,
+            offset: const Offset(0, 0),
           ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
-        ),
+        ],
       ),
     );
   }
 
   Future postTodo() async {
-    var url = Uri.https('3502-115-84-95-106.ngrok.io', '/api/post-product');
+    var url = Uri.https('ffed-115-84-95-106.ngrok.io', '/api/post-product');
     // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =

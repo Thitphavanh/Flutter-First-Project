@@ -83,7 +83,7 @@ class _ProductListPageState extends State<ProductListPage> {
   Future<void> getProductList() async {
     List allProduct = [];
     // var url = Uri.http('192.168.0.54:8000', '/api/all-product');
-    var url = Uri.https('3502-115-84-95-106.ngrok.io', '/api/all-product');
+    var url = Uri.https('ffed-115-84-95-106.ngrok.io', '/api/all-product');
     var response = await http.get(url);
     var result = utf8.decode(response.bodyBytes);
     print(result);

@@ -25,7 +25,7 @@ class _AddProductPageState extends State<AddProductPage> {
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: Text('Add'),
+        title: const Text('Add'),
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -121,7 +121,7 @@ class _AddProductPageState extends State<AddProductPage> {
       child: TextFormField(
         controller: productQuantity,
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ຈຳນວນ :',
           icon: Icon(Icons.calculate),
@@ -181,7 +181,7 @@ class _AddProductPageState extends State<AddProductPage> {
       child: TextFormField(
         controller: productSize,
         keyboardType: TextInputType.text,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ຂະໜາດ :',
           icon: Icon(Icons.description_sharp),
@@ -234,7 +234,7 @@ class _AddProductPageState extends State<AddProductPage> {
       child: TextFormField(
         controller: productPrice,
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ລາຄາ :',
           icon: Icon(Icons.price_change),
@@ -290,7 +290,7 @@ class _AddProductPageState extends State<AddProductPage> {
       child: TextFormField(
         controller: productDetail,
         keyboardType: TextInputType.text,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ລາຍລະອຽດ :',
           icon: Icon(Icons.list_alt),
@@ -343,7 +343,7 @@ class _AddProductPageState extends State<AddProductPage> {
       child: TextFormField(
         controller: productName,
         keyboardType: TextInputType.name,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ຊື່ :',
           icon: Icon(Icons.person),
@@ -367,7 +367,7 @@ class _AddProductPageState extends State<AddProductPage> {
   }
 
   Future postProduct() async {
-    var url = Uri.https('3502-115-84-95-106.ngrok.io', '/api/post-product');
+    var url = Uri.https('ffed-115-84-95-106.ngrok.io', '/api/post-product');
     // var url = Uri.http('192.168.0.54:8000', '/api/post-product');
     Map<String, String> header = {"Content-type": "application/json"};
     String jsondata =
