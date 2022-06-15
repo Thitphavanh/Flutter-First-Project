@@ -30,7 +30,6 @@ class _MainPageState extends State<MainPage> {
       behavior: HitTestBehavior.opaque,
       child: Scaffold(
         appBar: AppBar(
-          
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.white,
@@ -40,9 +39,9 @@ class _MainPageState extends State<MainPage> {
         body: tabs[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           selectedIconTheme: IconThemeData(color: Colors.grey.shade400),
-          unselectedIconTheme: IconThemeData(color: Colors.red.shade300),
+          unselectedIconTheme: IconThemeData(color: Colors.black),
           selectedItemColor: Colors.grey.shade400,
-          unselectedItemColor: Colors.red.shade300,
+          unselectedItemColor: Colors.black,
           currentIndex: _currentIndex,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),

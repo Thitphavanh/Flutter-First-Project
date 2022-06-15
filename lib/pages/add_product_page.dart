@@ -131,7 +131,7 @@ class _AddProductPageState extends State<AddProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ຈຳນວນ :',
-          icon: Icon(Icons.calculate),
+          icon: Icon(Icons.calculate, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -191,7 +191,7 @@ class _AddProductPageState extends State<AddProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ຂະໜາດ :',
-          icon: Icon(Icons.format_size_sharp),
+          icon: Icon(Icons.format_size_sharp, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -247,7 +247,7 @@ class _AddProductPageState extends State<AddProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ລາຍລະອຽດ :',
-          icon: Icon(Icons.list_alt),
+          icon: Icon(Icons.list_alt, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -300,7 +300,7 @@ class _AddProductPageState extends State<AddProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ລາຄາ :',
-          icon: Icon(Icons.price_change),
+          icon: Icon(Icons.price_change, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -353,7 +353,7 @@ class _AddProductPageState extends State<AddProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ຊື່ສິນຄ້າ :',
-          icon: Icon(Icons.person),
+          icon: Icon(Icons.person, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -382,6 +382,4 @@ class _AddProductPageState extends State<AddProductPage> {
     var response = await http.post(url, headers: header, body: jsondata);
     print(response.body);
   }
-
-  
 }

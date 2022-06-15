@@ -56,7 +56,7 @@ class _CalculatePageState extends State<CalculatePage> {
     return Text(
       result.text,
       style: const TextStyle(
-        color: Colors.red,
+        color: Colors.black,
         fontSize: 18,
       ),
     );
@@ -107,17 +107,17 @@ class _CalculatePageState extends State<CalculatePage> {
     //     ),
     //   ),
     // );
-     return Container(
+    return Container(
       padding: const EdgeInsets.only(
         left: 20.0,
       ),
       child: TextFormField(
         controller: price,
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ລາຄາຂົນສົ່ງ :',
-          icon: Icon(Icons.price_change),
+          icon: Icon(Icons.price_change, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -136,7 +136,6 @@ class _CalculatePageState extends State<CalculatePage> {
       ),
     );
   }
-
 
   Widget buildQuantityField() {
     // return TextField(
@@ -160,17 +159,17 @@ class _CalculatePageState extends State<CalculatePage> {
     //     ),
     //   ),
     // );
-     return Container(
+    return Container(
       padding: const EdgeInsets.only(
         left: 20.0,
       ),
       child: TextFormField(
         controller: quantity,
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ຈຳນວນກິໂລ :',
-          icon: Icon(Icons.calculate),
+          icon: Icon(Icons.calculate, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -188,7 +187,6 @@ class _CalculatePageState extends State<CalculatePage> {
         ],
       ),
     );
-    
   }
 
   Widget buildText() {

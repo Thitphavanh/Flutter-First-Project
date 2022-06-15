@@ -170,7 +170,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ແກ້ໄຂຈຳນວນ :',
-          icon: Icon(Icons.calculate),
+          icon: Icon(Icons.calculate, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -222,7 +222,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ແກ້ໄຂຂະໜາດ :',
-          icon: Icon(Icons.format_size_sharp),
+          icon: Icon(Icons.format_size_sharp, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -274,7 +274,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ແກ້ໄຂລາຍລະອຽດ :',
-          icon: Icon(Icons.list_alt),
+          icon: Icon(Icons.list_alt, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -328,7 +328,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ແກ້ໄຂລາຄາ :',
-          icon: Icon(Icons.price_change),
+          icon: Icon(Icons.price_change, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
@@ -380,7 +380,7 @@ class _UpdatProductPageState extends State<UpdatProductPage> {
         decoration: const InputDecoration(
           border: InputBorder.none,
           hintText: 'ແກ້ໄຂຊື່ສິນຄ້າ :',
-          icon: Icon(Icons.person),
+          icon: Icon(Icons.person, color: Colors.black),
         ),
       ),
       decoration: BoxDecoration(
